@@ -2,740 +2,117 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Lời mời đặc biệt ✨ | Ấn "Không" sẽ biến mất, rồi tự động đồng ý</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời mời đặc biệt ✨</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-        }
-
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
             margin: 0;
-            background: radial-gradient(circle at 20% 30%, #0a0f1e, #030507);
-            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
-            color: #f0f0f0;
-            padding: 16px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .glow-bg {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .glow-bg::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(229,9,20,0.2), transparent);
-            top: 10%;
-            left: -10%;
-            border-radius: 50%;
-            filter: blur(60px);
-        }
-        .glow-bg::after {
-            content: "";
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,80,40,0.15), transparent);
-            bottom: 0%;
-            right: -20%;
-            border-radius: 50%;
-            filter: blur(70px);
+            background-color: #0b0b0b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
-            padding: 24px 20px 32px;
-            background: rgba(12, 12, 20, 0.55);
-            backdrop-filter: blur(16px);
-            border-radius: 48px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 30px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
-            max-width: 460px;
-            width: 100%;
-            transition: all 0.3s ease;
-            z-index: 2;
-            animation: fadeSlideUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-
-        @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.96);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 400px;
         }
 
         h1 {
-            font-size: 1.9rem;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff, #ffb7b7);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            letter-spacing: -0.3px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        h1:after {
-            content: "🎬";
             font-size: 1.8rem;
-            background: none;
-            text-shadow: none;
+            margin-bottom: 20px;
+            color: #e50914; /* Màu đỏ Netflix */
         }
 
         .movie-poster {
             width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            border-radius: 28px;
-            margin-bottom: 24px;
-            box-shadow: 0 20px 35px -8px rgba(0,0,0,0.6), 0 0 0 2px rgba(229,9,14,0.3);
-            transition: transform 0.25s ease;
-            cursor: pointer;
-        }
-        .movie-poster:hover {
-            transform: scale(1.01);
-        }
-
-        .info-badge {
-            background: rgba(0,0,0,0.6);
-            border-radius: 60px;
-            padding: 6px 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-            font-size: 0.8rem;
-            backdrop-filter: blur(4px);
-            font-weight: 500;
-        }
-        .info-badge span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 32px;
+            gap: 20px;
             position: relative;
-            min-height: 85px;
-            margin: 12px 0 8px;
-            flex-wrap: wrap;
-            align-items: center;
+            height: 50px;
         }
 
         button {
-            padding: 12px 32px;
-            font-weight: 700;
+            padding: 10px 30px;
+            font-size: 1rem;
             border: none;
-            border-radius: 60px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.2s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.2s, opacity 0.2s;
-            font-family: inherit;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
         }
 
         #yesBtn {
-            background: linear-gradient(95deg, #e50914, #b0060f);
+            background-color: #e50914;
             color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-size: 1.15rem;
-            transform: scale(1);
-            transition: transform 0.2s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.2s;
-        }
-        #yesBtn:hover {
-            background: linear-gradient(95deg, #ff1a2a, #e50914);
-            box-shadow: 0 12px 24px rgba(229,9,20,0.5);
+            font-weight: bold;
         }
 
         #noBtn {
-            background: rgba(30, 30, 40, 0.9);
-            backdrop-filter: blur(8px);
-            color: #f0f0f0;
-            border: 1px solid rgba(255,255,255,0.25);
-            font-size: 1.15rem;
-            transform: scale(1);
-            transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s, visibility 0.2s;
+            background-color: #ffffff;
+            color: #333;
+            position: absolute;
         }
 
-        /* nút Không khi biến mất hoàn toàn */
-        .no-btn-hidden {
-            transform: scale(0) !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            transition: transform 0.25s ease, opacity 0.2s, visibility 0.1s !important;
-        }
-
-        /* thông báo chính (lời mời thành công) */
         .success-msg {
             display: none;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: 26px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(12px);
-            padding: 14px 18px;
-            border-radius: 60px;
-            color: #ffd966;
-            border-left: 4px solid #e50914;
-            animation: gentlePulse 0.8s ease;
-        }
-
-        @keyframes gentlePulse {
-            0% { opacity: 0; transform: scale(0.9);}
-            80% { transform: scale(1.02);}
-            100% { opacity: 1; transform: scale(1);}
-        }
-
-        /* hiệu ứng thông báo trung gian "Hết đường chối rồi nhé!" */
-        .intermediate-msg {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #1e1e2f, #0a0a14);
-            backdrop-filter: blur(20px);
-            padding: 20px 36px;
-            border-radius: 80px;
-            font-size: 1.7rem;
-            font-weight: bold;
-            color: #ffb347;
-            text-align: center;
-            white-space: nowrap;
-            z-index: 10010;
-            border: 2px solid #e50914;
-            box-shadow: 0 0 50px rgba(229,9,20,0.6);
-            letter-spacing: 2px;
-            animation: zoomInOut 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
-            font-family: inherit;
-        }
-
-        @keyframes zoomInOut {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            60% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        /* pháo hoa + confetti */
-        .confetti {
-            position: fixed;
-            width: 12px;
-            height: 12px;
-            background-color: gold;
-            position: absolute;
-            opacity: 0.8;
-            pointer-events: none;
-            z-index: 9999;
-            animation: fall 1.2s forwards;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .firework {
-            position: fixed;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ffb347, #ff4d4d);
-            box-shadow: 0 0 12px #ff6a00;
-            pointer-events: none;
-            z-index: 10000;
-            animation: blast 0.8s ease-out forwards;
-        }
-        @keyframes blast {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        @keyframes floatHeart {
-            0% { transform: translateY(0) scale(0.6); opacity: 1; }
-            100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 18px 16px 24px;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
-            button {
-                padding: 10px 22px;
-                font-size: 1rem;
-            }
-            .buttons {
-                gap: 20px;
-            }
-            .intermediate-msg {
-                font-size: 1.2rem;
-                padding: 14px 24px;
-                white-space: nowrap;
-            }
-        }
-
-        footer {
-            font-size: 0.7rem;
-            margin-top: 24px;
-            color: rgba(255,255,255,0.4);
-        }
-
-        .click-effect {
-            animation: btnPop 0.12s ease;
-        }
-        @keyframes btnPop {
-            0% { transform: scale(var(--scale-before, 1)); }
-            50% { transform: scale(calc(var(--scale-before, 1) * 0.92)); }
-            100% { transform: scale(var(--scale-before, 1)); }
+            font-size: 1.2rem;
+            color: #4CAF50;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div class="glow-bg"></div>
 <div class="container" id="mainCard">
-    <h1>✨ Đi xem "Swapped" cùng anh nhé? 🍿</h1>
-    <img class="movie-poster" 
-         src="https://images2.thanhnien.vn/528068207183130624/2023/12/2/trailer-family-switch-1701502476596350325324.jpg" 
-         alt="Áp phích phim Swapped - Family Switch"
-         onerror="this.src='https://via.placeholder.com/400x220?text=Swapped+Movie'">
+    <h1>Đi xem "Swapped" cùng anh nhé? 🍿</h1>
     
-    <div class="info-badge">
-        <span>🎞️ Phim hài gia đình ấm áp</span>
-        <span>⭐ 8.2</span>
-        <span>🍿 Cuối tuần này</span>
-    </div>
-
+    <img src="swapped-poster.jpg" alt="Swapped Movie" class="movie-poster" onerror="this.src='https://via.placeholder.com/400x600?text=Loi+hien+thi+anh'">
+    
     <div class="buttons">
-        <button id="yesBtn">Đồng ý ngay! 💖</button>
-        <button id="noBtn">Không 😢</button>
+        <button id="yesBtn" onclick="celebrate()">Đồng ý!</button>
+        <button id="noBtn" onmouseover="moveButton()">Không</button>
     </div>
-    <div id="message" class="success-msg">
-        🎉 Vậy là đồng ý rồi nha! Hẹn cuối tuần đi chơi nhé! 💖
-    </div>
-    <footer>💡 Ấn "Không" nhiều lần → nó nhỏ dần rồi biến mất → 1 giây sau hiện "Vậy là đồng ý..."</footer>
+    <div id="message" class="success-msg">Hẹn gặp em vào cuối tuần này nhé! ❤️</div>
 </div>
 
 <script>
-    (function() {
-        // DOM elements
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const messageDiv = document.getElementById('message');
-        const mainContainer = document.getElementById('mainCard');
+    function moveButton() {
+        const btn = document.getElementById('noBtn');
+        // Tính toán vị trí ngẫu nhiên để nút "Không" chạy mất khi di chuột vào
+        const x = Math.random() * (window.innerWidth - btn.offsetWidth - 50);
+        const y = Math.random() * (window.innerHeight - btn.offsetHeight - 50);
         
-        // Trạng thái
-        let isCelebrated = false;           // Đã chính thức đồng ý chưa
-        let clickCount = 0;                 // Số lần nhấn nút "Không"
-        const MAX_CLICKS = 6;               // Sau 6 lần nút Không hoàn toàn biến mất
+        btn.style.position = 'fixed';
+        btn.style.left = x + 'px';
+        btn.style.top = y + 'px';
+    }
+
+    function celebrate() {
+        const mainCard = document.getElementById('mainCard');
+        document.getElementById('noBtn').style.display = 'none';
+        document.getElementById('yesBtn').style.transform = 'scale(1.2)';
+        document.getElementById('message').style.display = 'block';
         
-        // Kích thước scale hiện tại
-        let noScale = 1.0;
-        let yesScale = 1.0;
-        
-        const MIN_NO_SCALE = 0.02;          
-        const STEP_DECREASE = (1 - MIN_NO_SCALE) / MAX_CLICKS;  // mỗi lần giảm ~0.163
-        const MAX_YES_SCALE = 2.2;          
-        const STEP_INCREASE = (MAX_YES_SCALE - 1) / MAX_CLICKS; 
- 
-        let processing = false;
-        let noDisappearedFlag = false;       // đánh dấu nút Không đã biến mất hoàn toàn
-        
-        // Hàm cập nhật scale
-        function updateScales() {
-            if (!noBtn || !yesBtn) return;
-            let finalNoScale = Math.max(MIN_NO_SCALE, noScale);
-            let finalYesScale = Math.min(MAX_YES_SCALE, yesScale);
-            noBtn.style.transform = `scale(${finalNoScale})`;
-            yesBtn.style.transform = `scale(${finalYesScale})`;
-            
-            // Nếu scale của nút Không quá nhỏ và chưa xử lý biến mất thì gọi disappear
-            if (finalNoScale <= 0.05 && !isCelebrated && !noDisappearedFlag && clickCount >= MAX_CLICKS - 1) {
-                handleNoButtonDisappear();
-            }
-        }
-        
-        // Hiển thị thông báo trung gian "Hết đường chối rồi nhé! 😜" -> sau 1s mới hiện đồng ý
-        function showIntermediateThenCelebrate() {
-            // Tạo lớp phủ thông báo to đẹp
-            const interDiv = document.createElement('div');
-            interDiv.className = 'intermediate-msg';
-            interDiv.innerText = 'Hết đường chối rồi nhé! 😜';
-            document.body.appendChild(interDiv);
-            
-            // Chạy hiệu ứng rung nhẹ nền
-            mainContainer.style.transition = 'all 0.2s';
-            mainContainer.style.transform = 'scale(1.01)';
-            setTimeout(() => {
-                if (mainContainer) mainContainer.style.transform = '';
-            }, 200);
-            
-            // Sau 1 giây, xóa thông báo trung gian và tiến hành chính thức đồng ý
-            setTimeout(() => {
-                if (interDiv && interDiv.remove) interDiv.remove();
-                // Gọi hàm celebrate chính thức (vậy là đồng ý)
-                finalCelebration();
-            }, 1000);
-        }
-        
-        // Xử lý khi nút Không biến mất hoàn toàn (gọi sau khi scale về 0 và đã đủ số lần nhấn)
-        function handleNoButtonDisappear() {
-            if (isCelebrated) return;
-            if (noDisappearedFlag) return;
-            noDisappearedFlag = true;
-            
-            // Ẩn nút Không vĩnh viễn (class ẩn + disable)
-            if (noBtn) {
-                noBtn.classList.add('no-btn-hidden');
-                noBtn.style.pointerEvents = 'none';
-                noBtn.style.transform = 'scale(0)';
-            }
-            
-            // Đưa nút Đồng ý lên scale max siêu to
-            if (yesBtn) {
-                yesBtn.style.transform = `scale(${MAX_YES_SCALE})`;
-                // Đổi text nút Đồng ý cho kịch tính
-                yesBtn.innerText = '💖 CHỜ CHỜ 💖';
-                setTimeout(() => {
-                    if (yesBtn && !isCelebrated) yesBtn.innerText = 'Ấn nhanh nào! 🎉';
-                }, 600);
-            }
-            
-            // Hiển thị thông báo "Hết đường chối rồi nhé! 😜" và sau 1s mới hiện "Vậy là đồng ý..."
-            showIntermediateThenCelebrate();
-        }
-        
-        // Hàm chúc mừng cuối cùng (sau khi hiện thông báo trung gian)
-        function finalCelebration() {
-            if (isCelebrated) return;
-            isCelebrated = true;
-            
-            // Đảm bảo nút Đồng ý ở trạng thái đẹp
-            if (yesBtn) {
-                yesBtn.style.transform = `scale(${MAX_YES_SCALE})`;
-                yesBtn.innerText = '❤️ ĐỒNG Ý RỒI NHÉ! ❤️';
-            }
-            
-            // Hiển thị message chính (vậy là đồng ý rồi nha)
-            messageDiv.style.display = 'block';
-            
-            // Bắn pháo hoa & confetti rực rỡ
-            createFireworksAndConfetti();
-            
-            // Thêm toast phụ "Chốt đơn thành công!"
-            const successToast = document.createElement('div');
-            successToast.innerText = '✨ Vậy là đồng ý rồi nha! Hẹn cuối tuần đi xem Swapped nhé! ✨';
-            successToast.style.position = 'fixed';
-            successToast.style.bottom = '20%';
-            successToast.style.left = '50%';
-            successToast.style.transform = 'translateX(-50%)';
-            successToast.style.background = '#e50914dd';
-            successToast.style.backdropFilter = 'blur(12px)';
-            successToast.style.padding = '12px 26px';
-            successToast.style.borderRadius = '60px';
-            successToast.style.fontWeight = 'bold';
-            successToast.style.color = 'white';
-            successToast.style.zIndex = '10002';
-            successToast.style.fontSize = '1rem';
-            successToast.style.whiteSpace = 'nowrap';
-            successToast.style.boxShadow = '0 0 20px rgba(229,9,20,0.8)';
-            document.body.appendChild(successToast);
-            setTimeout(() => successToast.remove(), 3500);
-            
-            // Làm đẹp container
-            mainContainer.style.border = '2px solid #ffb347';
-            mainContainer.style.boxShadow = '0 0 45px rgba(229,9,20,0.8)';
-            
-            // Đảm bảo vô hiệu hóa nút Không nếu có vấn đề
-            if (noBtn) {
-                noBtn.style.pointerEvents = 'none';
-            }
-        }
-        
-        // Hàm xử lý khi click vào nút "Không" (mỗi lần nhỏ dần, đồng thời "Đồng ý" to dần)
-        function handleNoClick(e) {
-            e.stopPropagation();
-            if (isCelebrated) return;
-            if (processing) return;
-            if (noDisappearedFlag) return; // đã biến mất rồi không cho click nữa
-            processing = true;
-            
-            clickCount++;
-            
-            // Cập nhật scale mới cho nút Không (giảm)
-            let newNoScale = noScale - STEP_DECREASE;
-            if (newNoScale < MIN_NO_SCALE) newNoScale = MIN_NO_SCALE;
-            noScale = newNoScale;
-            
-            // Cập nhật scale cho nút Đồng ý (tăng)
-            let newYesScale = yesScale + STEP_INCREASE;
-            if (newYesScale > MAX_YES_SCALE) newYesScale = MAX_YES_SCALE;
-            yesScale = newYesScale;
-            
-            updateScales();
-            
-            // Hiệu ứng rung vui
-            noBtn.classList.add('click-effect');
-            setTimeout(() => { if(noBtn) noBtn.classList.remove('click-effect'); }, 120);
-            yesBtn.classList.add('click-effect');
-            setTimeout(() => { if(yesBtn) yesBtn.classList.remove('click-effect'); }, 120);
-            
-            // Thông báo thú vị theo số lần click
-            if (clickCount === 2) {
-                showFloatingTip("😏 Cứ ấn nữa đi, nút 'Không' sẽ nhỏ dần...");
-            } else if (clickCount === 4) {
-                showFloatingTip("🤣 Nút 'Không' sắp biến mất rồi kìa!");
-            } else if (clickCount === 5) {
-                showFloatingTip("⚠️ Thêm 1 lần nữa là hết đường chối đấy! ⚠️");
-            }
-            
-            // Nếu đã đủ số lần thì kích hoạt biến mất (nếu scale đủ nhỏ)
-            if (clickCount >= MAX_CLICKS && !noDisappearedFlag && !isCelebrated) {
-                // Đảm bảo nút Không scale về 0 và trigger biến mất
-                noScale = 0;
-                updateScales();
-                setTimeout(() => {
-                    if (!noDisappearedFlag && !isCelebrated) handleNoButtonDisappear();
-                }, 60);
-            }
-            
-            setTimeout(() => {
-                processing = false;
-            }, 150);
-        }
-        
-        // Hiển thị tip nhỏ (bong bóng)
-        function showFloatingTip(msg, duration = 1800) {
-            const tip = document.createElement('div');
-            tip.innerText = msg;
-            tip.style.position = 'fixed';
-            tip.style.bottom = '30%';
-            tip.style.left = '50%';
-            tip.style.transform = 'translateX(-50%)';
-            tip.style.backgroundColor = '#1f1f2ecc';
-            tip.style.color = '#ffd966';
-            tip.style.padding = '8px 20px';
-            tip.style.borderRadius = '40px';
-            tip.style.fontSize = '0.85rem';
-            tip.style.fontWeight = 'bold';
-            tip.style.border = '1px solid #e50914';
-            tip.style.backdropFilter = 'blur(12px)';
-            tip.style.zIndex = '10010';
-            tip.style.whiteSpace = 'nowrap';
-            document.body.appendChild(tip);
-            setTimeout(() => {
-                tip.style.opacity = '0';
-                setTimeout(() => tip.remove(), 300);
-            }, duration);
-        }
-        
-        // Pháo hoa và confetti (bản nâng cấp)
-        function createFireworksAndConfetti() {
-            // Confetti
-            for (let i = 0; i < 160; i++) {
-                const conf = document.createElement('div');
-                conf.classList.add('confetti');
-                const colors = ['#e50914', '#ffc107', '#ff6b6b', '#4caf50', '#2196f3', '#ff80ab', '#ffd966', '#f72585', '#b5179e', '#00b4d8'];
-                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                conf.style.width = Math.random() * 12 + 5 + 'px';
-                conf.style.height = Math.random() * 9 + 5 + 'px';
-                conf.style.left = Math.random() * window.innerWidth + 'px';
-                conf.style.top = '-20px';
-                conf.style.position = 'fixed';
-                conf.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                conf.style.transform = `rotate(${Math.random() * 360}deg)`;
-                const duration = Math.random() * 1.4 + 0.9;
-                conf.style.animation = `fall ${duration}s linear forwards`;
-                document.body.appendChild(conf);
-                setTimeout(() => conf.remove(), duration * 1000);
-            }
-            // Pháo hoa
-            const positions = [
-                { x: window.innerWidth * 0.2, y: window.innerHeight * 0.3 },
-                { x: window.innerWidth * 0.7, y: window.innerHeight * 0.2 },
-                { x: window.innerWidth * 0.5, y: window.innerHeight * 0.5 },
-                { x: window.innerWidth * 0.8, y: window.innerHeight * 0.7 },
-                { x: window.innerWidth * 0.3, y: window.innerHeight * 0.8 },
-                { x: window.innerWidth * 0.6, y: window.innerHeight * 0.4 },
-            ];
-            for (let p of positions) {
-                for (let i = 0; i < 32; i++) {
-                    const fw = document.createElement('div');
-                    fw.classList.add('firework');
-                    const angle = Math.random() * Math.PI * 2;
-                    const velocity = Math.random() * 110 + 40;
-                    const tx = Math.cos(angle) * velocity;
-                    const ty = Math.sin(angle) * velocity;
-                    fw.style.left = p.x + 'px';
-                    fw.style.top = p.y + 'px';
-                    fw.style.width = Math.random() * 9 + 4 + 'px';
-                    fw.style.height = fw.style.width;
-                    fw.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 65%)`;
-                    fw.style.position = 'fixed';
-                    fw.style.transform = 'translate(-50%, -50%)';
-                    fw.style.boxShadow = `0 0 ${Math.random() * 14 + 6}px gold`;
-                    document.body.appendChild(fw);
-                    let start = performance.now();
-                    function animateFirework(now) {
-                        const elapsed = (now - start) / 1000;
-                        if (elapsed > 0.9) { fw.remove(); return; }
-                        const moveX = tx * elapsed;
-                        const moveY = ty * elapsed - 0.5 * 220 * elapsed * elapsed;
-                        fw.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
-                        fw.style.opacity = 1 - elapsed / 0.9;
-                        requestAnimationFrame(animateFirework);
-                    }
-                    requestAnimationFrame(animateFirework);
-                }
-            }
-            // Trái tim bay
-            for (let i = 0; i < 55; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.style.position = 'fixed';
-                heart.style.fontSize = Math.random() * 24 + 16 + 'px';
-                heart.style.left = Math.random() * window.innerWidth + 'px';
-                heart.style.bottom = '-20px';
-                heart.style.opacity = '0.9';
-                heart.style.pointerEvents = 'none';
-                heart.style.zIndex = '10001';
-                heart.style.animation = `floatHeart ${Math.random() * 1.5 + 1.2}s ease-out forwards`;
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 1800);
-            }
-        }
-        
-        // Xử lý khi nhấn trực tiếp nút Đồng ý (vẫn giữ nguyên tính năng)
-        function directYesClick() {
-            if (isCelebrated) return;
-            // Nếu chưa có gì thì cũng tạo hiệu ứng đồng ý ngay lập tức (ưu tiên)
-            isCelebrated = true;
-            if (noBtn) {
-                noBtn.classList.add('no-btn-hidden');
-                noBtn.style.pointerEvents = 'none';
-            }
-            if (yesBtn) {
-                yesBtn.style.transform = `scale(${MAX_YES_SCALE})`;
-                yesBtn.innerText = '❤️ TUYỆT VỜI! ❤️';
-            }
-            messageDiv.style.display = 'block';
-            createFireworksAndConfetti();
-            const toast = document.createElement('div');
-            toast.innerText = '💘 Cảm ơn em! Hẹn cuối tuần vui vẻ nhé! 💘';
-            toast.style.position = 'fixed';
-            toast.style.bottom = '25%';
-            toast.style.left = '50%';
-            toast.style.transform = 'translateX(-50%)';
-            toast.style.background = '#e50914dd';
-            toast.style.padding = '12px 24px';
-            toast.style.borderRadius = '60px';
-            toast.style.fontWeight = 'bold';
-            toast.style.color = 'white';
-            toast.style.zIndex = '10003';
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-            mainContainer.style.border = '2px solid #ffb347';
-            mainContainer.style.boxShadow = '0 0 40px rgba(229,9,20,0.8)';
-        }
-        
-        // Gắn sự kiện
-        function bindEvents() {
-            if (yesBtn) {
-                yesBtn.removeEventListener('click', directYesClick);
-                yesBtn.addEventListener('click', directYesClick);
-            }
-            if (noBtn) {
-                noBtn.removeEventListener('click', handleNoClick);
-                noBtn.addEventListener('click', handleNoClick);
-            }
-        }
-        
-        // Khởi tạo
-        function init() {
-            noScale = 1.0;
-            yesScale = 1.0;
-            clickCount = 0;
-            isCelebrated = false;
-            processing = false;
-            noDisappearedFlag = false;
-            if (noBtn) {
-                noBtn.classList.remove('no-btn-hidden');
-                noBtn.style.transform = 'scale(1)';
-                noBtn.style.pointerEvents = 'auto';
-                noBtn.style.opacity = '';
-                noBtn.style.visibility = '';
-            }
-            if (yesBtn) {
-                yesBtn.style.transform = 'scale(1)';
-                yesBtn.innerText = 'Đồng ý ngay! 💖';
-            }
-            messageDiv.style.display = 'none';
-            mainContainer.style.border = '';
-            mainContainer.style.boxShadow = '';
-            bindEvents();
-        }
-        
-        init();
-        
-        // Thêm style động cho hiệu ứng click
-        const styleSheet = document.createElement("style");
-        styleSheet.textContent = `
-            @keyframes floatHeart {
-                0% { transform: translateY(0) scale(0.6); opacity: 1; }
-                100% { transform: translateY(-300px) scale(1.2); opacity: 0; }
-            }
-            .click-effect {
-                animation: btnPop 0.12s ease;
-            }
-            @keyframes btnPop {
-                0% { transform: scale(var(--scale-before, 1)); }
-                50% { transform: scale(calc(var(--scale-before, 1) * 0.92)); }
-                100% { transform: scale(var(--scale-before, 1)); }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-        
-        console.log("✅ Sẵn sàng! Ấn 'Không' nhiều lần -> nó biến mất -> hiện 'Hết đường chối' -> sau 1s hiện 'Vậy là đồng ý' ❤️");
-    })();
+        // Hiệu ứng thông báo đơn giản
+        alert("Anh biết là em sẽ không từ chối mà! 😉");
+    }
 </script>
+
 </body>
 </html>
